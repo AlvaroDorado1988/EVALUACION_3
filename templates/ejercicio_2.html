@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Document</title>
+</head>
+<body>
+
+<form action="{{ url_for('ejercicio2') }}" method="POST">
+        <div class = "nombre">
+            <label for="nombre1">Nombre 1:</label>
+            <input id="nombre1", name="nombre1", type="text", required>
+        </div>
+        <div class = "nombre">
+            <label for="nombre2">Nombre 2:</label>
+            <input id="nombre2", name="nombre2", type="text", required>
+        </div>
+        <div class = "nombre">
+        <label for="nombre3">Nombre 3:</label>
+        <input id="nombre3", name="nombre3", type="text", required >
+        </div>
+
+        <div class = "nombre">
+            <button type = "submit">Enviar</button>
+        </div>
+
+        <div class = "resultado">
+            {% if nombres_ganadores is not none %}
+            <p>El nombre con mayor cantidad de caracteres es:</p>
+
+            {% for nombre in nombres_ganadores %}
+                <p>{{ nombre }}</p>
+            {% endfor %}
+
+            <p>El nombre tiene: {{ cantidad }}</p>
+            {% endif %}
+        </div>
+    </form>
+
+</body>
+</html>
